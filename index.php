@@ -6,7 +6,10 @@
  * @package Customizr
  * @since Customizr 1.0
  */
+
+//===============1.是否加载modern style，默认是modern style
 if ( apply_filters( 'czr_ms', false ) ) {
+    //调用index-no-model.php模板
   do_action( 'czr_ms_tmpl' );
   return;
 }

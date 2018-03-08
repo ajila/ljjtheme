@@ -10,6 +10,7 @@
 <header class="tpnav-header__header tc-header <?php czr_fn_echo('element_class') ?>" role="banner" <?php czr_fn_echo('element_attributes') ?>>
           <?php
             //czr_fn_render_template always check if the model is registered or possible.
+            //1.3.1顶部导航栏topbar模板
             czr_fn_render_template( 'header/topbar_wrapper',
               array(
                 'model_args' => array(
@@ -19,7 +20,7 @@
               )
             );
           ?>
-          <?php
+          <?php //1.3.2主导航栏navbar模板
               czr_fn_render_template( 'header/navbar_wrapper',//<=header/navbar_wrapper
                 array(
                   'model_id' => 'navbar_wrapper',
@@ -30,7 +31,7 @@
                 )
               );
           ?>
-          <?php
+          <?php //1.3.3移动导航栏模板
             czr_fn_render_template( 'header/mobile_navbar_wrapper',
               array(
                 'model_args' => array(
@@ -41,4 +42,5 @@
             )
           ?>
 </header>
-<?php do_action( '__after_header' ) ?>
+<?php //1.4 显示slider
+    do_action( '__after_header' ) ?>

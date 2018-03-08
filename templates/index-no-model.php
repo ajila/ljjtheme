@@ -12,10 +12,11 @@
  * @since Customizr 1.0
  */
 ?>
+<?php //1.加载header.php ?>
 <?php get_header() ?>
 
 
-  <?php
+  <?php //==========2.加载slider
     // This hook is used to render the following elements(ordered by priorities) :
     // slider
     // singular thumbnail

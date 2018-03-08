@@ -17,11 +17,14 @@
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?> class="no-js">
 <!--<![endif]-->
+
+    <?php //1.1调用head-no-model.php模板 ?>
   <?php czr_fn_require_once( CZR_MAIN_TEMPLATES_PATH . 'head-no-model.php' ) ?>
 
   <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
     <?php
         if ( czr_fn_is_registered_or_possible('sidenav') && czr_fn_is_registered_or_possible('header') ) {
+          //1.2侧边弹出导航菜单模板
           czr_fn_render_template( 'header/parts/sidenav' );
         }
     ?>
@@ -36,6 +39,7 @@
         //as of the 13th of July 2017, the header model associated with the header template has been registered already on wp.
         //Unlike most of the other models, that are registered on the fly ( or on the flight like Rocco can say .. AH AH AH)
         //in this case the following function prints the template located in templates/part/header.php
+        //1.3调用templates/parts/header.php模板
         czr_fn_render_template( 'header' );
 
         //will fire do_action( '__after_header' )

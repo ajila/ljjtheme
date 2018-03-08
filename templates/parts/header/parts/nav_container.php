@@ -7,7 +7,7 @@
   <div class="primary-nav__wrapper flex-lg-row align-items-center justify-content-end">
      <?php if ( czr_fn_is_registered_or_possible( 'navbar_primary_menu' ) || czr_fn_is_registered_or_possible( 'navbar_secondary_menu' ) ) { ?>
          <nav class="primary-nav__nav col" id="primary-nav">
-          <?php
+          <?php //菜单模板
               czr_fn_render_template( 'header/parts/menu', array(
                 'model_id'   =>  czr_fn_is_registered_or_possible( 'navbar_primary_menu' ) ? 'navbar_primary_menu' : 'navbar_secondary_menu',
               ) );
@@ -18,7 +18,9 @@
         czr_fn_add_menu_button();
       }
 
-      if ( czr_fn_is_registered_or_possible( 'primary_nav_utils' ) ) czr_fn_render_template( 'header/parts/primary_nav_utils' )
+      if ( czr_fn_is_registered_or_possible( 'primary_nav_utils' ) )
+	      //主导航栏工具模板
+          czr_fn_render_template( 'header/parts/primary_nav_utils' )
     ?>
   </div>
 </div>

@@ -7,12 +7,15 @@
  * @package Customizr
  * @since Customizr 1.0
  */
+
+//===============1.是否加载modern style，默认是modern style
 if ( apply_filters( 'czr_ms', false ) ) {
     //in core init => add_action( 'czr_ms_tmpl', array( $this , 'czr_fn_load_modern_template_with_no_model' ), 10 , 1 );
     //function czr_fn_load_modern_template_with_no_model( $template = null ) {
     //     $template = $template ? $template : 'index';
     //     $this -> czr_fn_require_once( CZR_MAIN_TEMPLATES_PATH . $template . '.php' );
     // }
+	//调用header-no-model.php模板
     do_action( 'czr_ms_tmpl', 'header' );
     return;
 }

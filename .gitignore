@@ -1,0 +1,12 @@
+##############################
+## sass cache               ##
+##############################
+.sass-cache
+
+##############################
+## scss generate css        ##
+##############################
+assets/front/scss/*.css
+assets/front/scss/*.map
+
+主题目录结构list.txt

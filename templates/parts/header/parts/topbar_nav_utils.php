@@ -10,7 +10,7 @@
     <ul class="nav utils flex-row flex-nowrap regular-nav">
       <?php
       if ( czr_fn_is_registered_or_possible( 'desktop_topbar_search' ) ) {
-
+        //导航栏搜索框模板
         czr_fn_render_template( 'header/parts/nav_search', array(
           'model_id' => 'desktop_topbar_search',
           'model_args' => array(
@@ -21,7 +21,7 @@
       }
 
       if ( czr_fn_is_registered_or_possible( 'desktop_topbar_wc_cart' ) ) :
-
+          //导航栏购物车模板
           czr_fn_render_template( 'header/parts/woocommerce_cart', array(
             'model_id'   => 'woocommerce_cart',
             'model_args' => array(

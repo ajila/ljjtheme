@@ -1,6 +1,7 @@
 <?php
 /**
  * The template for displaying a menu ( both main and secondary in navbar or/and the sidenav one)
+ * 显示导航菜单或侧边弹出菜单中的 主/副菜单
  */
 ?>
 <div class="nav__menu-wrapper <?php czr_fn_echo('element_class') ?>" <?php czr_fn_echo('element_attributes') ?>>

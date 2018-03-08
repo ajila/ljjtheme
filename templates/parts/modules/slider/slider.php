@@ -6,7 +6,7 @@
 ?>
 <div id="customizr-slider-<?php czr_fn_echo( 'id' ) ?>" class="section-slider <?php czr_fn_echo( 'element_class' ) ?>" <?php czr_fn_echo('element_attributes') ?>>
   <div class="czr-slider-holder">
-<?php
+<?php //1.slider加载动画
     if ( czr_fn_get_property( 'has_loader' ) ) : ?>
         <div id="czr-slider-loader-wrapper-<?php czr_fn_echo( 'id' ) ?>" class="czr-slider-loader-wrapper">
             <div class="czr-img-gif-loader"></div>
@@ -19,18 +19,21 @@
     do_action( '__before_carousel_inner' );
   ?>
   <div class="<?php czr_fn_echo( 'inner_class' ) ?>" <?php czr_fn_echo( 'inner_attrs' ) ?> >
-<?php
+<?php //2.slider内容
         while ( (bool) $the_slide = czr_fn_get_property( 'the_slide' ) )
           czr_fn_render_template( 'modules/slider/slide', array( 'model_args' => array( 'the_slide' => $the_slide ) ) )
 ?>
   </div><!-- /.carousel-inner -->
 <?php
     do_action( '__after_carousel_inner' );
+
+    //3.编辑按钮
     if ( czr_fn_get_property( 'has_slider_edit_link' ) ) {
       czr_fn_edit_button( array( 'class' => 'slider-btn-edit inverse', 'link'  => czr_fn_get_property( 'slider_edit_link' ), 'text'  => czr_fn_get_property( 'slider_edit_link_text' ) ) );
     }
 
     if ( czr_fn_get_property( 'has_controls' ) ) {
+      //4.slider前后页导航
       czr_fn_carousel_nav();
     }
 ?>

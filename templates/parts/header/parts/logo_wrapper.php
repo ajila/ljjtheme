@@ -7,6 +7,7 @@
   <a class="navbar-brand-sitelogo" href="<?php echo esc_url( home_url( '/' ) ) ?>"  title="<?php bloginfo( 'name' ) ?> | <?php echo get_bloginfo( 'description', 'display' ) ?>" >
     <?php
       if ( czr_fn_is_registered_or_possible('logo') )
+	      //logo模板
         czr_fn_render_template( 'header/parts/logo' );
     ?>
   </a>

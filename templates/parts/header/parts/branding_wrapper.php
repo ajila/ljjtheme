@@ -8,11 +8,14 @@
   <div class="branding align-items-center <?php czr_fn_echo( 'inner_branding_class' ); ?>">
   <?php
     if ( czr_fn_is_registered_or_possible('logo_wrapper') ){
+	    //logo容器模板
       czr_fn_render_template( 'header/parts/logo_wrapper' );
     } else
+	    //标题模板
       czr_fn_render_template( 'header/parts/title' );
 
     if ( czr_fn_is_registered_or_possible( 'branding_tagline' ) )
+	    //副标题模板
       czr_fn_render_template( 'header/parts/tagline' );
   ?>
   </div>

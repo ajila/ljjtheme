@@ -9,7 +9,7 @@
       <?php if ( czr_fn_is_registered_or_possible( 'topbar_menu' ) ) :?>
         <div class="topbar-nav__container col col-auto">
           <nav id="topbar-nav" class="topbar-nav__nav <?php czr_fn_echo('nav_class') ?>">
-            <?php
+            <?php //菜单模板
               czr_fn_render_template( 'header/parts/menu', array(
                 'model_id' => 'topbar_menu',
               ));
@@ -18,6 +18,7 @@
         </div>
       <?php endif ?>
       <?php if ( czr_fn_is_registered_or_possible( 'topbar_tagline' ) )
+        //副标题模板
         czr_fn_render_template( 'header/parts/tagline', array(
           'model_args' => array(
             'element_class' => 'col col-auto',
@@ -26,12 +27,12 @@
       ?>
       <?php if ( czr_fn_is_registered_or_possible( 'topbar_social_block' ) ) : ?>
         <div class="topbar-nav__socials social-links col col-auto">
-          <?php
+          <?php //社交链接块模板
             czr_fn_render_template( 'modules/common/social_block' );
           ?>
         </div>
       <?php endif;
-
+        //菜单栏工具模板
         czr_fn_render_template( 'header/parts/topbar_nav_utils' );
 
       ?>
