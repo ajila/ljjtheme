@@ -23,6 +23,11 @@ class CZR_slide_model_class extends CZR_Model {
   public $slider_name_id;
   public $edit_url;
 
+  //luojunji 20180206
+  public $slide_cat;
+  public $slide_author;
+  public $slide_date;
+
   /* In the slider loop */
   function czr_fn_setup_late_properties() {
     //get the current slide;
@@ -100,6 +105,11 @@ class CZR_slide_model_class extends CZR_Model {
     $button_text            = isset( $data['button_text'] ) ? $data['button_text'] : null;
     $button_link            = isset( $data['link_url'] ) ? $data['link_url'] : 'javascript:void(0)';
 
+    //luojunji 20180206
+	  $slide_cat            = isset( $data['cat'] ) ? $data['cat'] : null;
+	  $slide_author         = isset( $data['author'] ) ? $data['author'] : null;
+	  $slide_date           = isset( $data['date'] ) ? $data['date'] : null;
+
     $show_caption           = ! ( $title == null && $subtitle == null && $button_text == null ) ;
     if ( ! apply_filters( 'czr_slide_show_caption', $show_caption , $slider_name_id ) )
       return array();
@@ -126,7 +136,9 @@ class CZR_slide_model_class extends CZR_Model {
     if ( ! ( isset($title) || isset($text) || isset($button_text) ) )
       return array();
 
-    $caption_elements = wp_parse_args( compact( 'title', 'button_text', 'subtitle', 'button_link' ), $defaults );
+    //$caption_elements = wp_parse_args( compact( 'title', 'button_text', 'subtitle', 'button_link' ), $defaults );
+	  //luojunji20180206
+	 $caption_elements = wp_parse_args( compact( 'title', 'button_text', 'subtitle', 'button_link','slide_cat','slide_author','slide_date' ), $defaults );
 
     return $caption_elements;
   }

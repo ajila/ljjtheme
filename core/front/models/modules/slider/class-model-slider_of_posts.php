@@ -185,6 +185,7 @@ class CZR_slider_of_posts_model_class extends CZR_slider_model_class {
       'posts_per_page'   => 5,
       'offset'           => 0,
       'suppress_filters' => false, // <- for language plugins
+	    'tag'           => 'recommend',  //luojunji 20180206
     );
 
     $args           = apply_filters( 'czr_query_posts_slider_args', wp_parse_args( $args, $defaults ) );
@@ -259,7 +260,19 @@ class CZR_slider_of_posts_model_class extends CZR_slider_model_class {
     $title                  = ( isset( $args['show_title'] ) && $args['show_title'] ) ? $this -> czr_fn_get_post_slide_title( $_post, $ID) : '';
     //lead text
     $text                   = ( isset( $args['show_excerpt'] ) && $args['show_excerpt'] ) ? $this -> czr_fn_get_post_slide_excerpt( $_post, $ID) : '';
-    return compact( 'ID', 'title', 'text', 'slide_background' );
+
+    //luojunji 20180206
+	  $cats             = get_the_category($ID);
+	  $cat              = '';
+	  foreach ($cats as $c)
+	  {
+			$cat = $cat . esc_attr($c->name) . '/';
+	  }
+	  $author           = get_the_author();
+	  $date             = $_post->post_date;
+    //return compact( 'ID', 'title', 'text', 'slide_background' );
+	  return compact( 'ID', 'title', 'text', 'slide_background','cat','author','date');
+
   }
 
 
@@ -277,6 +290,11 @@ class CZR_slider_of_posts_model_class extends CZR_slider_model_class {
     $title                 = isset( $_post_slide['title'] ) ? $_post_slide['title'] : '';
     $text                  = isset( $_post_slide['text'] ) ? $_post_slide['text'] : '';
     $slide_background      = isset( $_post_slide['slide_background'] ) ? $_post_slide['slide_background'] : '';
+
+    //luojunji20180206
+	  $cat              = isset( $_post_slide['cat'] ) ? $_post_slide['cat'] : '';
+	  $author           = isset( $_post_slide['author'] ) ? $_post_slide['author'] : '';
+	  $date             = isset( $_post_slide['date'] ) ? $_post_slide['date'] : '';
 
     $button_text           = isset( $common['button_text'] ) ? $common['button_text'] : '';
     $link_whole_slide      = isset( $common['link_whole_slide'] ) ? $common['link_whole_slide'] : '';
@@ -308,7 +326,11 @@ class CZR_slider_of_posts_model_class extends CZR_slider_model_class {
         'link_whole_slide',
         'color_style',
         'slide_background',
-        'edit_suffix'
+        'edit_suffix',
+        //luojunji 20180206
+        'cat',
+        'author',
+        'date'
     ), $ID );
   }
 

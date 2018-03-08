@@ -8741,7 +8741,8 @@ class CZR_slider {
     ?>
     <div id="customizr-slider-<?php echo self::$rendered_sliders ?>" class="<?php echo $_layout_classes ?>">
 
-      <?php $this -> czr_fn_render_slider_loader_view( $slider_name_id ); ?>
+      <?php //加载动画
+      $this -> czr_fn_render_slider_loader_view( $slider_name_id ); ?>
 
       <?php do_action( '__before_carousel_inner' , $slides, $slider_name_id )  ?>
 
